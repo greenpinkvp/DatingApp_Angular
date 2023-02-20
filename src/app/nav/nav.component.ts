@@ -1,4 +1,4 @@
-import { Component, Inject, Injectable, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../_services/account.service';
@@ -8,7 +8,7 @@ import { AccountService } from '../_services/account.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css'],
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
   model: any = {};
   // currentUser$: Observable<User | null> = of(null);
 
@@ -18,9 +18,9 @@ export class NavComponent implements OnInit {
     private toastr: ToastrService
   ) {}
 
-  ngOnInit(): void {
-    // this.currentUser$ = this.accountService.currentUserSource$;
-  }
+  // ngOnInit(): void {
+  //   this.currentUser$ = this.accountService.currentUserSource$;
+  // }
 
   login() {
     this.accountService.login(this.model).subscribe({

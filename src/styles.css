@@ -11,7 +11,7 @@
   .member-tabset > .nav-tabs > li.open > a, .member-tabset > .nav-tabs > li:hover > a {
     border: 0;
     background: none !important;
-    color: #333333;
+    color: #888;
   }
   
   .member-tabset > .nav-tabs > li.open > a > i, .member-tabset > .nav-tabs > li:hover > a > i {
@@ -29,7 +29,7 @@
   
   .member-tabset > .nav-tabs > li.active > a {
     border: 0 !important;
-    color: #333333;
+    color: #888;
   }
   
   .member-tabset > .nav-tabs > li.active > a > i {
