@@ -17,7 +17,7 @@ export class MembersService {
     if (this.members.length > 0) {
       return of(this.members);
     }
-    return this.http 
+    return this.http
       .get<Member[]>(
         this.baseUrl + 'users'
         //, this.getHttpOptions()
@@ -62,5 +62,13 @@ export class MembersService {
         this.members[index] = { ...this.members[index], ...member };
       })
     );
+  }
+
+  setMainPhoto(photoId: string) {
+    return this.http.put(this.baseUrl + 'users/set-main-photo/' + photoId, {});
+  }
+
+  deletePhoto(photoId:string){
+    return this.http.delete(this.baseUrl+'users/delete-photo/' + photoId);
   }
 }
