@@ -1,0 +1,20 @@
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width: 30%;">UserName</th>
+                <th style="width: 30%;">Active roles</th>
+                <th style="width: 30%;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.userName}}</td>
+                <td>{{user.roles}}</td>
+                <td><button class="btn btn-primary"
+                        [routerLink]="['edit-user-roles/', user.userName]">Edit Roles</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

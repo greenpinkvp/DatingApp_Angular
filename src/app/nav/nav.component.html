@@ -18,6 +18,10 @@
                     <a class="nav-link" routerLink="/messages"
                         routerLinkActive="active">Messages</a>
                 </li>
+                <li *appHasRole="['Administrator', 'Moderator']" class="nav-item">
+                    <a class="nav-link" routerLink="/admin"
+                        routerLinkActive="active">Admin</a>
+                </li>
             </ng-container>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/errors"
@@ -40,8 +44,8 @@
         <form *ngIf="!(accountService.currentUser$|async)" #loginForm="ngForm"
             class="d-flex"
             (ngSubmit)="login()">
-            <input name="username" [(ngModel)]="model.username"
-                class="form-control me-2" type="text" placeholder="Username">
+            <input name="userName" [(ngModel)]="model.userName"
+                class="form-control me-2" type="text" placeholder="UserName">
             <input name="password" [(ngModel)]="model.password"
                 class="form-control me-2" type="password"
                 placeholder="Password">

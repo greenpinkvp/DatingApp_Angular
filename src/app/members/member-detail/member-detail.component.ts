@@ -75,11 +75,11 @@ export class MemberDetailComponent {
   }
 
   // loadMember() {
-  //   const username = this.route.snapshot.paramMap.get('username');
+  //   const userName = this.route.snapshot.paramMap.get('userName');
 
-  //   if (!username) return;
+  //   if (!userName) return;
 
-  //   this.memberService.getMember(username).subscribe({
+  //   this.memberService.getMember(userName).subscribe({
   //     next: (member) => {
   //       this.member = member;
   //     },
@@ -88,7 +88,7 @@ export class MemberDetailComponent {
 
   loadMessages() {
     if (this.member) {
-      this.messageService.getMessageThread(this.member.username).subscribe({
+      this.messageService.getMessageThread(this.member.userName).subscribe({
         next: (messages) => {
           this.messages = messages;
         },

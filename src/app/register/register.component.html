@@ -17,8 +17,8 @@
                 formControlName="gender"> Female
         </label>
     </div>
-    <app-text-input [formControl]="$any(registerForm.controls['username'])"
-        [label]="'Username'"></app-text-input>
+    <app-text-input [formControl]="$any(registerForm.controls['userName'])"
+        [label]="'UserName'"></app-text-input>
     <app-text-input [formControl]="$any(registerForm.controls['knownAs'])"
         [label]="'Known As'"></app-text-input>
     <app-date-picker [formControl]="$any(registerForm.controls['dateOfBirth'])"
@@ -44,17 +44,17 @@
     <!-- <div class="mb-3">
         <input type="text"
             class="form-control"
-            name="username"
-            [(ngModel)]="model.username"
-            placeholder="Username">
+            name="userName"
+            [(ngModel)]="model.userName"
+            placeholder="UserName">
         <input type="text"
-            [class.is-invalid]="registerForm.get('username')?.errors &&
-            registerForm.get('username')?.touched"
+            [class.is-invalid]="registerForm.get('userName')?.errors &&
+            registerForm.get('userName')?.touched"
             class="form-control"
-            formControlName="username"
-            placeholder="Username">
+            formControlName="userName"
+            placeholder="UserName">
         <div class="invalid-feedback">
-            Please enter a username
+            Please enter a userName
         </div>
     </div> -->
     <!-- <div class="mb-3">

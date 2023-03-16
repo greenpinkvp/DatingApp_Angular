@@ -34,8 +34,8 @@
         <tbody class="align-middle">
             <tr [hidden]="loading" *ngFor="let message of messages"
                 routerLink="{{container === 'Outbox'?'/members/' +
-                message.recipientUsername:'/members/'+
-                message.senderUsername}}">
+                message.recipientUserName:'/members/'+
+                message.senderUserName}}">
                 <td>{{message.content}}</td>
                 <td>
                     <div *ngIf="container === 'Outbox'">
@@ -43,7 +43,7 @@
                             './assets/user.png'}}"
                             class="img-circle rounded-circle me-2"
                             alt="recipient photo">
-                        <strong>{{message.recipientUsername|titlecase}}</strong>
+                        <strong>{{message.recipientUserName|titlecase}}</strong>
                     </div>
 
                     <div *ngIf="container !== 'Outbox'">
@@ -51,7 +51,7 @@
                             './assets/user.png'}}"
                             class="img-circle rounded-circle me-2"
                             alt="sender photo">
-                        <strong>{{message.senderUsername|titlecase}}</strong>
+                        <strong>{{message.senderUserName|titlecase}}</strong>
                     </div>
                 </td>
 

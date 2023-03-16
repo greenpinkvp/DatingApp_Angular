@@ -22,15 +22,15 @@ export class MessagesService {
     );
   }
 
-  getMessageThread(username: string) {
+  getMessageThread(userName: string) {
     return this.http.get<Message[]>(
-      this.baseUrl + 'messages/thread/' + username
+      this.baseUrl + 'messages/thread/' + userName
     );
   }
 
-  sendMessage(username: string, content: string) {
+  sendMessage(userName: string, content: string) {
     return this.http.post<Message>(this.baseUrl + 'messages', {
-      recipientUsername: username,
+      recipientUserName: userName,
       content,
     });
   }
