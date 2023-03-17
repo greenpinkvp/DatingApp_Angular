@@ -9,12 +9,12 @@ import { MessagesService } from 'src/app/_services/messages.service';
   styleUrls: ['./member-messages.component.css'],
 })
 export class MemberMessagesComponent {
-  @ViewChild('messageForm') messageForm?:NgForm;
+  @ViewChild('messageForm') messageForm?: NgForm;
   @Input() userName?: string;
-  @Input() messages: Message[] = [];
+  // @Input() messages: Message[] = [];
   messageContent = '';
 
-  constructor(private messageService: MessagesService) {}
+  constructor(public messageService: MessagesService) {}
 
   sendMessage() {
     if (!this.userName) {
@@ -23,11 +23,14 @@ export class MemberMessagesComponent {
 
     this.messageService
       .sendMessage(this.userName, this.messageContent)
-      .subscribe({
-        next: (message) => {
-          this.messages.push(message);
-          this.messageForm?.reset();
-        },
+      .then(() => {
+        this.messageForm?.reset();
       });
+    // .subscribe({
+    //   next: (message) => {
+    //      this.messages.push(message);
+    //      this.messageForm?.reset();
+    //   },
+    // });
   }
 }
