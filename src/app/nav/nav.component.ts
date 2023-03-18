@@ -12,11 +12,7 @@ export class NavComponent {
   model: any = {};
   // currentUser$: Observable<User | null> = of(null);
 
-  constructor(
-    public accountService: AccountService,
-    private router: Router,
-    private toastr: ToastrService
-  ) {}
+  constructor(public accountService: AccountService, private router: Router) {}
 
   // ngOnInit(): void {
   //   this.currentUser$ = this.accountService.currentUserSource$;
@@ -24,7 +20,9 @@ export class NavComponent {
 
   login() {
     this.accountService.login(this.model).subscribe({
-      next: (_) => this.router.navigateByUrl('/members'), //_: khong su dung doi so cho method
+      next: (_) => {
+        this.router.navigateByUrl('/members'), (this.model = {});
+      }, //_: khong su dung doi so cho method
       //error: (error) => this.toastr.error(error.error),
     });
   }
