@@ -13,7 +13,7 @@ export class MessagesComponent {
   pagination?: Pagination;
   container = 'Unread';
   pageNumber = 1;
-  pageSize = 5;
+  pageSize = 6;
   loading = false;
 
   constructor(private messageService: MessagesService) {}

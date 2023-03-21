@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { map, of, take } from 'rxjs';
 import { enviroment } from 'src/enviroments/enviroment';
 import { Member } from '../_model/member';
-import { PaginatedResult } from '../_model/pagination';
 import { User } from '../_model/user';
 import { UserParams } from '../_modules/userParams';
 import { AccountService } from './account.service';

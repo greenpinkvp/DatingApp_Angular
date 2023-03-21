@@ -47,11 +47,11 @@ export class PresenceService {
 
     this.hubConnection.on('NewMessageReceived', ({ userName, knownAs }) => {
       this.toastr
-        .info(knownAs + 'has sent you a new message! Click me to see it')
+        .info(knownAs + ' has sent you a new message! Click me to see it')
         .onTap.pipe(take(1))
         .subscribe({
           next: () =>
-            this.router.navigateByUrl('/members/' + userName + '?tab=Messages'),
+            this.router.navigateByUrl('/members/' + userName + '?tab=Messages'), 
         });
     });
   }
