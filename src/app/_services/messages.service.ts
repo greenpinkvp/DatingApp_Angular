@@ -31,6 +31,7 @@ export class MessagesService {
       .build();
 
     this.hubConnection.start().catch((error) => console.log(error));
+
     this.hubConnection.on('ReceiveMessageThread', (messages) => {
       this.messageThreadSource.next(messages);
     });
@@ -41,7 +42,7 @@ export class MessagesService {
           next: (messages) => {
             messages.forEach((message) => {
               if (!message.dateRead) {
-                message.dateRead == new Date(Date.now());
+                message.dateRead = new Date(Date.now());
               }
             });
 
@@ -51,7 +52,7 @@ export class MessagesService {
       }
     });
 
-    this.hubConnection.on('NewMessages', (message) => {
+    this.hubConnection.on('NewMessage', (message) => {
       this.messageThread$.pipe(take(1)).subscribe({
         next: (messages) => {
           this.messageThreadSource.next([...messages, message]);
@@ -96,7 +97,7 @@ export class MessagesService {
 
   stopHubConnection() {
     if (this.hubConnection) {
-      this.hubConnection?.stop().catch((error) => console.log(error));
+      this.hubConnection.stop().catch((error) => console.log(error));
     }
   }
 }
